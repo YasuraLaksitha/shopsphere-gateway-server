@@ -36,3 +36,7 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8071/eureka
+
+logging:
+  level:
+    com.shopsphere.gateway_server: DEBUG
