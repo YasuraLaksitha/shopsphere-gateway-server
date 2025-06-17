@@ -1,5 +1,6 @@
 package com.shopsphere.gateway_server.filters;
 
+import com.shopsphere.gateway_server.utils.FilterUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -16,7 +17,7 @@ import java.util.UUID;
 @Component
 @RequiredArgsConstructor
 @Slf4j
-public class RequestTranceFilter implements GlobalFilter {
+public class RequestTraceFilter implements GlobalFilter {
 
     private final FilterUtil filterUtil;
 
@@ -25,7 +26,7 @@ public class RequestTranceFilter implements GlobalFilter {
         final HttpHeaders headers = exchange.getRequest().getHeaders();
 
         if (isCorrelationIdPresent(headers))
-            log.debug("shopsphere-correlation-id found in RequestTranceFilter: {}", filterUtil.getCorrelationId(headers));
+            log.debug("shopsphere-correlation-id found in RequestTraceFilter: {}", filterUtil.getCorrelationId(headers));
         else {
             final String correlationId = generateCorrelationId();
             exchange = filterUtil.setCorrelationId(exchange, correlationId);

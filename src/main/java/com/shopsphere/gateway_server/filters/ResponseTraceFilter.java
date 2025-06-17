@@ -1,5 +1,6 @@
 package com.shopsphere.gateway_server.filters;
 
+import com.shopsphere.gateway_server.utils.FilterUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
