@@ -28,7 +28,9 @@ public class SecurityConfig {
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(final ServerHttpSecurity security) {
         return security.authorizeExchange(exchanges -> exchanges
+                        .pathMatchers("/actuator/**").permitAll()
                         .pathMatchers(HttpMethod.GET, "/shopsphere/products/**").permitAll()
+                        .pathMatchers("/shopsphere/*/swagger-ui/**", "/shopsphere/*/v3/api-docs/**").permitAll()
                         .pathMatchers("/shopsphere/carts/api/contact-info/**").permitAll()
                         .pathMatchers("/shopsphere/users/api/public/**").permitAll()
                         .pathMatchers("/shopsphere/orders/webhook/stripe").permitAll()
