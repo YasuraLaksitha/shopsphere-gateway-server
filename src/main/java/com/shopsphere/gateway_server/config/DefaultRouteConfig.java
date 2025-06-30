@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class DefaultRouteConfig {
 
     @Bean
-    public RouteLocator swaggerRoutes(final RouteLocatorBuilder builder) {
+    public RouteLocator defaultRoutes(final RouteLocatorBuilder builder) {
         final String segmentPrefix = "/${segment}";
 
         final String xResponseTimeHeader = "X-Response-Time";
